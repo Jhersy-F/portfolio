@@ -1,18 +1,18 @@
 # netlify.toml
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "build"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Critical for SPA routing - this handles client-side routing
+# Handle client-side routing - THIS IS CRITICAL FOR REACT ROUTER
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Optional: If you have API functions
+# If you have API functions (optional)
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
